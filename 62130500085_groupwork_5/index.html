@@ -1,0 +1,110 @@
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Basic Vue Js - HelloWorld App</title>
+
+
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+
+  <!-- Using via Google Web Fonts -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+
+  <!-- https://tailwindcss.com/docs/installation -->
+
+  <!-- Using Tailwind via CDN -->
+
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+
+  <!-- Vue CDN -->
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+
+
+
+
+</head>
+
+<body class=" bg-yellow-200">
+
+  <div id="app">
+    <div class="  py-8 w-full   flex justify-center items-center  ">
+      <div class="  rounded w-4/6 shadow  bg-yellow-500   ">
+
+        <div class="flex flex-row justify-between uppercase font-bold text-blue-dark border-b-2 p-6  bg-yellow-700">
+          <p class="mx-auto font-bold text-3xl">Dog Gallery <p>
+        </div>
+
+
+        <div class="  flex   ">
+          <div class="flex text-lg font-bold text-pink-500 mt-4 ml-10 ">
+            <span class="material-icons mx-2">
+              favorite
+            </span>
+            <p class=" ">favorite ({{countLove}})</p>
+
+            <div class="flex items-center ml-10 lg:ml-80">
+
+
+              <photo-search @toggle-search="toggleSearch" @block-search="searching" :iconSearch="iconSearch"
+                :blockCancel="blockCancel" :blockInput="blockInput"></photo-search>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="p-6 text-grey-darker text-center flex flex-col  ">
+
+          <photo-view :tasks="tasks"></photo-view>
+
+          <photo-item :tasks="tasks" @toggle-show="toggleShow" @toggle-like="toggleLike"></photo-item>
+
+
+
+          <div v-if="filterForNotFound==tasks.length">
+            <h1 class="text-xl">No
+              photo.</h1>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- my main.js -->
+
+  <script src="./main.js"></script>
+  <script src="./components/PhotoSearch.js"></script>
+  <script src="./components/PhotoItem.js"></script>
+  <script src="./components/PhotoView.js"></script>
+
+
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
